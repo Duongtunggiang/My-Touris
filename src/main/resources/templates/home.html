@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel & Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #0d6efd;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: white;
+        }
+
+        .carousel-item {
+            height: 700px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+        }
+        .search-location {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .btn-book-now {
+            padding: 0.75rem 2rem;
+            font-size: 1.2rem;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Travel & Booking</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hotels</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tours</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Carousel -->
+<div id="heroCarousel" class="carousel slide  mb-3" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item " style="background-image: url('https://bvhttdl.mediacdn.vn/documents/492002/1190200/Cao+bang.jpg')">
+            <div class="hero-text">
+                <h1>Discover Beautiful Destinations</h1>
+                <p>Book your dream vacation now!</p>
+                <a href="#" class="btn btn-light btn-book-now">Book Now</a>
+            </div>
+        </div>
+        <div class="carousel-item active" style="background-image: url('https://ik.imagekit.io/tvlk/blog/2022/03/dia-diem-du-lich-yen-bai-2.jpg?tr=dpr-2,w-675')">
+            <div class="hero-text">
+                <h1>Explore Amazing Places</h1>
+                <p>Your adventure awaits!</p>
+                <a href="#" class="btn btn-light btn-book-now">Book Now</a>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('https://glendatowermocchauhotel.com/storage/photos/7/che_2.jpg')">
+            <div class="hero-text">
+                <h1>Find Your Next Getaway</h1>
+                <p>Plan your trip today!</p>
+                <a href="#" class="btn btn-light btn-book-now">Book Now</a>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- Search Section moved below the hero section -->
+<section class="container search-location mb-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center">Search Location</h3>
+            <form>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="Enter destination">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="check-in" class="form-label">Check-in Date</label>
+                        <input type="date" class="form-control" id="check-in">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="check-out" class="form-label">Check-out Date</label>
+                        <input type="date" class="form-control" id="check-out">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="container mb-3">
+    <h2 class="section-title">Featured Hotels</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="https://via.placeholder.com/350x220" class="card-img-top" alt="Hotel 1">
+                <div class="card-body">
+                    <h5 class="card-title">Luxury Resort</h5>
+                    <p class="card-text">Located in the heart of the city, this 5-star hotel offers luxurious rooms
+                        and excellent service.</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="https://via.placeholder.com/350x220" class="card-img-top" alt="Hotel 2">
+                <div class="card-body">
+                    <h5 class="card-title">Beachfront Hotel</h5>
+                    <p class="card-text">Enjoy the serene view of the beach from this beautiful hotel. Perfect for a
+                        relaxing getaway.</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="https://via.placeholder.com/350x220" class="card-img-top" alt="Hotel 3">
+                <div class="card-body">
+                    <h5 class="card-title">Mountain Lodge</h5>
+                    <p class="card-text">A cozy lodge surrounded by mountains, offering an unforgettable experience
+                        for nature lovers.</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container mb-3">
+    <h2 class="section-title">Explore Our Tour Packages</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="https://via.placeholder.com/350x220" class="card-img-top" alt="Tour 1">
+                <div class="card-body">
+                    <h5 class="card-title">Island Adventure</h5>
+                    <p class="card-text">Experience the thrill of island hopping with our special tour package.</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="https://via.placeholder.com/350x220" class="card-img-top" alt="Tour 2">
+                <div class="card-body">
+                    <h5 class="card-title">City Explorer</h5>
+                    <p class="card-text">Discover the wonders of the city with our comprehensive guided tours.</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="https://via.placeholder.com/350x220" class="card-img-top" alt="Tour 3">
+                <div class="card-body">
+                    <h5 class="card-title">Mountain Trekking</h5>
+                    <p class="card-text">Join us for an adventurous trek through stunning mountain landscapes.</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2024 Travel & Booking. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
